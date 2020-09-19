@@ -1,0 +1,34 @@
+.searchClass {
+  display: inline-flex;
+  width: min-content;
+  box-sizing: border-box;
+  cursor: pointer;
+  letter-spacing: 0;
+  fill: #ee6e73;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #ee6e73;
+}
+
+.svg-icon circle {
+  stroke: #ee6e73;
+  stroke-width: 1;
+}

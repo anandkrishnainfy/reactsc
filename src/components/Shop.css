@@ -1,0 +1,32 @@
+card-image,
+card-image::before,
+card-image::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  padding: 1.6px;
+}
+
+.btn-floating.halfway-fab {
+  position: absolute;
+  /* right: 24px; */
+  /* bottom: -20px; */
+}
+
+.rose {
+  background-color: #ee6e73 !important;
+  width: 100%;
+  float: left;
+  display: flex;
+  justify-content: space-around;
+  color: white;
+  font-weight: 700;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
+.focus:focus {
+  color: white;
+  background-color: red;
+}
