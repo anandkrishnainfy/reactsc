@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addToCart } from "./actions/cartActions";
+import { addToCart, updateItems } from "./actions/cartActions";
 import "./Shop.css";
 
 class Shop extends Component {
@@ -10,14 +10,21 @@ class Shop extends Component {
 
   handleChange = (event) => {
     console.log("On Change triggered", event.target.value);
-    let oldList = this.props.items;
-    let newList = oldList.filter((obj) => {
-      let item_lc = obj.title.toLowerCase();
-      if (item_lc.includes(event.target.value.toLowerCase())) {
-        return obj;
-      }
-    });
-    console.log("New List", newList);
+    const { items, updateItems } = this.props;
+    let newList = items;
+    if (event.target.value.length) {
+      newList = items.filter((obj) => {
+        let item_lc = obj.title.toLowerCase();
+        if (item_lc.includes(event.target.value.toLowerCase())) {
+          return true;
+        }
+        return false;
+      });
+      console.log("New List", newList);
+      updateItems(newList);
+    } else {
+      updateItems('reset');
+    }
     //this.props.items = newList;
   };
 
@@ -85,12 +92,9 @@ const mapStateToProps = (state) => {
     items: state.items,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addToCart: (id) => {
-      dispatch(addToCart(id));
-    },
-  };
+const mapDispatchToProps = {
+  addToCart,
+  updateItems,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Shop);

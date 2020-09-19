@@ -4,6 +4,7 @@ import {
   SUB_QUANTITY,
   ADD_QUANTITY,
   ADD_SHIPPING,
+  UPDATE_ITEMS,
 } from "./action-types/cart-actions";
 
 //add cart action
@@ -34,3 +35,8 @@ export const addQuantity = (id) => {
     id,
   };
 };
+
+export const updateItems = data => ({
+  type: UPDATE_ITEMS,
+  data,
+});
